@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% entends 'base.html' %}
+
+{% block content %}
+
+    <div class="card mt-4">
+        <div class="card-header">
+            {{post.title}}
+        </div>
+        <div class="card-body">
+            {{post.content}}
+        </div>
+        <div class="card-footer">
+            {{post.created_at}}
+            <a href="{% url 'post:delete' id=post.id %}" class="btn btn-danger">delete</a>
+            <a href="{% url 'posts:edit' id=post,id %}" class="btn btn-warning">edit</a>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
